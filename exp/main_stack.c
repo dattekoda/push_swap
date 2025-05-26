@@ -1,43 +1,48 @@
 #include "stack.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-int	main(void)
+static void	print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("%d, ", stack->value);
+		stack = stack->next;
+	}
+	printf("\n");
+}
+
+static void	print_AB(t_stack *a, t_stack *b)
+{
+	t_stack *_a = a;
+	t_stack *_b = b;
+	printf("A: ");
+	print_stack(a);
+	printf("B: ");
+	print_stack(b);
+}
+
+int	main(int argc, char *argv[])
 {
 	t_stack	*a;
-	int		value;
+	t_stack *b;
+	int		i;
 
-	a = init_stack(10);
-	if (!a)
-		return (1);
-	
-	push(a, 3);
-	push(a, 7);
-	push(a, 1);
+	a = init_stack();
+	b = init_stack();
+	i = 0;
 
-	printf("Stack A:\n");
-	print_stack(a);
+	while (++i < argc)
+		push_stack(&a, atoi(argv[i]));
+	print_AB(a, b);
 
-	pop(a, &value);
-	printf("Popped value: %d\n", value);
+	swap_stack(&a);
+	print_AB(a, b);
 
-	printf("Stack A after pop:\n");
-	print_stack(a);
+	push_stack(&b, pop_stack(&a));
+	print_AB(a, b);
 
-	push(a, -4);
-	printf("Stack A after push:\n");
-	print_stack(a);
-
-	push(a, value);
-	printf("Stack A after push value %d:\n", value);
-	print_stack(a);
-
-	swap(a);
-	printf("Stack A after swap:\n");
-	print_stack(a);
-
-	rotate(a);
-	printf("Stack A after rotate:\n");
-	print_stack(a);
-
-	free_stack(a);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

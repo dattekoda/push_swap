@@ -1,88 +1,93 @@
 #include "stack.h"
 
-t_stack	*init_stack(int capacity)
+t_stack	*init_stack(void)
 {
-	t_stack	*stack;
-
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->array = (int *)malloc(sizeof(int) * capacity);
-	if (!stack->array)
-		return (free(stack), NULL);
-	stack->size = 0;
-	stack->capacity = capacity;
-	return (stack);
+	return (NULL);
 }
 
-void	free_stack(t_stack *stack)
+void	free_stack(t_stack **head)
 {
-	if (stack)
+	t_stack	*tmp;
+
+	while (*head)
 	{
-		free(stack->array);
-		free(stack);
+		tmp = *head;
+		*head = tmp->next;
+		free(tmp);
 	}
 }
 
-int	push(t_stack *stack, int value)
+void	push_stack(t_stack **head, int val)
 {
-	if (stack->size >= stack->capacity)
-		return (-1);
-	stack->array[stack->size] = value;
-	stack->size++;
-	return (0);
-}
+	t_stack	*node;
 
-int	pop(t_stack *stack, int *value)
-{
-	if (stack->size <= 0)
-		return (-1);
-	stack->size--;
-	*value = stack->array[stack->size];
-	return (0);
-}
-
-int	swap(t_stack *stack)
-{
-	int	tmp;
-	int	size;
-
-	size = stack->size;
-	if (size <= 1)
-		return (-1);
-	tmp = stack->array[size - 1];
-	stack->array[size - 1] = stack->array[size - 2];
-	stack->array[size - 2] = tmp;
-	return (0);
-}
-
-int	rotate(t_stack *stack)
-{
-	int	tmp;
-	int	i;
-	int	size;
-
-	size = stack->size - 1;
-	if (size <= 0)
-		return (-1);
-	i = -1;
-	while (2 * (++i) < size)
-	{
-		tmp = stack->array[i];
-		stack->array[i] = stack->array[size - i];
-		stack->array[size - i] = tmp;
-	}
-	return (0);
-}
-
-void	print_stack(t_stack *stack)
-{
-	int	i;
-
-	if (!stack)
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (!node)
 		return ;
-	i = stack->size;
-	while (--i >= 0)
-		printf("%d: %d\n", i, stack->array[i]);
-	printf("-----------\n\n");
+	node->value = val;
+	node->next = *head;
+	*head = node;
+}
+
+int	pop_stack(t_stack **head)
+{
+	int	pop;
+	t_stack	*node;
+
+	if (!*head)
+		return (0);
+	node = *head;
+	pop = node->value;
+	*head = node->next;
+	free(node);
+	return (pop);
+}
+
+void	swap_stack(t_stack **head)
+{
+	t_stack	*first;
+	t_stack *second;
+
+	if (!*head || !(*head)->next)
+		return ;
+	first = *head;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*head = second;
+}
+
+void	rotate_stack(t_stack **head)
+{
+	t_stack	*first;
+	t_stack *tail;
+
+	if (!*head || !(*head)->next)
+		return ;
+	first = *head;
+	*head = first->next;
+	first->next = NULL;
+	tail = *head;
+	while (tail->next)
+		tail = tail->next;
+	tail->next = first;
+}
+
+void	rev_rotate_stack(t_stack **head)
+{
+	t_stack	*prev;
+	t_stack	*tail;
+
+	if (!*head || !(*head)->next)
+		return ;
+	prev = NULL;
+	tail = *head;
+	while (tail->next)
+	{
+		prev = tail;
+		tail = tail->next;
+	}
+	prev->next = NULL;
+	tail->next = *head;
+	*head = tail;
 }

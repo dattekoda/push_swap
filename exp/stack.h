@@ -6,17 +6,16 @@
 
 typedef struct s_stack
 {
-	int	*array;
-	int size;
-	int capacity;
+	int	value;
+	struct s_stack *next;
 }	t_stack;
 
-t_stack	*init_stack(int capacity);
-void	free_stack(t_stack *stack);
-int		push(t_stack *stack, int value);
-int		pop(t_stack *stack, int *value);
-int		swap(t_stack *stack);
-int		rotate(t_stack *stack);
-void	print_stack(t_stack *stack);
+t_stack	*init_stack(void);
+void	free_stack(t_stack **head);
+void	push_stack(t_stack **head, int val);
+int		pop_stack(t_stack **head);
+void	swap_stack(t_stack **head);
+void	rotate_stack(t_stack **head);
+void	rev_rotate_stack(t_stack **head);
 
 #endif
