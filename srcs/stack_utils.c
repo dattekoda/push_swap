@@ -12,31 +12,24 @@ void	free_stack(t_stack **head)
 	}
 }
 
-int	push_stack(t_stack **head, int val)
+void	push_stack(t_stack **head, t_stack *node)
 {
-	t_stack	*node;
-
-	node = (t_stack *)malloc(sizeof(t_stack));
-	if (!node)
-		return (1);
-	node->value = val;
+	if (!node || !head)
+		return ;
 	node->next = *head;
 	*head = node;
-	return (0);
 }
 
-int	pop_stack(t_stack **head)
+t_stack	*pop_stack(t_stack **head)
 {
-	int		pop;
 	t_stack	*node;
 
-	if (!*head)
-		return (0);
+	if (!*head || !head)
+		return (NULL);
 	node = *head;
-	pop = node->value;
 	*head = node->next;
-	free(node);
-	return (pop);
+	node->next = NULL;
+	return (node);
 }
 
 void	swap_stack(t_stack **head)

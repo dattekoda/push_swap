@@ -33,7 +33,6 @@ static void	print_two(t_two *two)
 
 void	push_swap(t_two **two)
 {
-
 }
 
 int	main(int argc, char *argv[])

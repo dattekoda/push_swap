@@ -14,12 +14,15 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
+# include <limits.h>
 # include "../libft/includes/libft.h"
 # include "../printf/includes/ft_printf.h"
 
 typedef struct s_stack
 {
 	int	value;
+	int	index;
 	struct s_stack *next;
 }	t_stack;
 
@@ -30,8 +33,8 @@ typedef struct s_two
 }	t_two;
 
 void	free_stack(t_stack **head);
-int		push_stack(t_stack **head, int val);
-int		pop_stack(t_stack **head);
+void	push_stack(t_stack **head, t_stack *node);
+t_stack	*pop_stack(t_stack **head);
 void	swap_stack(t_stack **head);
 void	rotate_stack(t_stack **head);
 void	rev_rotate_stack(t_stack **head);
@@ -50,6 +53,7 @@ void	rra(t_two **two);
 void	rrb(t_two **two);
 void	rrr(t_two **two);
 
+void	ft_qsort(int arr[], int low, int high);
 void	push_swap(t_two **two);
 t_two	*parse_num_to_two(int argc, char *argv[]);
 
