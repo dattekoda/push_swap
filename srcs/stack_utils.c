@@ -1,4 +1,4 @@
-#include "stack.h"
+#include "../includes/push_swap.h"
 
 void	free_stack(t_stack **head)
 {
@@ -12,16 +12,17 @@ void	free_stack(t_stack **head)
 	}
 }
 
-void	push_stack(t_stack **head, int val)
+int	push_stack(t_stack **head, int val)
 {
 	t_stack	*node;
 
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
-		return ;
+		return (1);
 	node->value = val;
 	node->next = *head;
 	*head = node;
+	return (0);
 }
 
 int	pop_stack(t_stack **head)
@@ -52,37 +53,9 @@ void	swap_stack(t_stack **head)
 	*head = second;
 }
 
-void	rotate_stack(t_stack **head)
+void	pa(t_two **two)
 {
-	t_stack	*first;
-	t_stack *tail;
-
-	if (!*head || !(*head)->next)
-		return ;
-	first = *head;
-	*head = first->next;
-	first->next = NULL;
-	tail = *head;
-	while (tail->next)
-		tail = tail->next;
-	tail->next = first;
-}
-
-void	rev_rotate_stack(t_stack **head)
-{
-	t_stack	*prev;
-	t_stack	*tail;
-
-	if (!*head || !(*head)->next)
-		return ;
-	prev = NULL;
-	tail = *head;
-	while (tail->next)
-	{
-		prev = tail;
-		tail = tail->next;
-	}
-	prev->next = NULL;
-	tail->next = *head;
-	*head = tail;
+	write(1, "pa\n", 3);
+	if ((*two)->b)
+		push_stack(&((*two)->a), pop_stack(&((*two)->b)));
 }

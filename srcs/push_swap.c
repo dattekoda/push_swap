@@ -11,22 +11,37 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
-void	push_swap(int argc, char *argv[])
+static void	print_stack(t_stack *stack)
 {
-	int	i = -1;
-	int	num;
-	t_list	a;
-	t_list	b;
-	while (++i < argc)
+	while (stack)
 	{
-		num = ft_atoi(argv[i]);
-		ft_printf("%d\n", num);
+		printf("%d, ", stack->value);
+		stack = stack->next;
 	}
+	printf("\n");
+}
+
+static void	print_two(t_two *two)
+{
+	printf("A: ");
+	print_stack(two->a);
+	printf("B: ");
+	print_stack(two->b);
+}
+
+void	push_swap(t_two **two)
+{
+
 }
 
 int	main(int argc, char *argv[])
 {
-	push_swap(--argc, argv + 1);
+	t_two	*two;
+
+	two = parse_num_to_two(argc, argv);
+	print_two(two);
+	push_swap(&two);
 	return (0);
 }
