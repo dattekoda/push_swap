@@ -1,20 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_check_duplicate.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/14 19:49:16 by khanadat          #+#    #+#             */
+/*   Updated: 2025/06/14 20:02:45 by khanadat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/includes/libft.h"
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-static int	check_duplicate(int arr[], int length)
+static int	check_duplicate(int before[], int after[], int length)
 {
-	int	before[length];
-	int	after[length];
 	int	i;
 	int	j;
 
 	i = length;
-	ft_memmove(before, arr, sizeof(int) * length);
-	ft_qsort(arr, 0, length - 1);
-	ft_memmove(after, arr, sizeof(int) * length);
+	ft_memmove(after, before, sizeof(int) * length);
+	ft_qsort(after, 0, length - 1);
 	while (--i)
-		if (arr[i] == arr[i - 1])
+		if (after[i] == after[i - 1])
 			return (1);
 	i = -1;
 	while (++i < length)
@@ -22,22 +31,49 @@ static int	check_duplicate(int arr[], int length)
 		j = -1;
 		while (++j < length)
 			if (before[i] == after[j])
-				arr[i] = j;
+				after[i] = j;
 	}
 	return (0);
 }
 
-int	main(void)
+int	*char_to_int(int argc, char *argv[])
 {
-	int a[10] = {7, 9, 1, 3, 4, 8, 6};
-	int len = 7;
+	int *res;
+
+	res = malloc(sizeof(int) * argc);
+	if (!res)
+		return (NULL);
+	while(argc--)
+		res[argc] = atoi(argv[argc + 1]);
+	return (res);
+}
+
+int	main(int argc, char *argv[])
+{
+	int	*a;
+	int	*b;
 	int	i = -1;
 
-	while (++i < len)
-		printf("%d ", a[i]);
+	argc--;
+	b = char_to_int(argc, argv);
+	if (!b)
+		err();
+	a = malloc(sizeof(int) * argc);
+	if (!a)
+	{
+		free(b);
+		err();
+	}
+	if (check_duplicate(b, a, argc) == 1)
+	{
+		free(a);
+		free(b);
+		err();
+	}
+	while (++i < argc)
+		printf("%d ", b[i]);
 	printf("\n");
-	check_duplicate(a, len);
 	i = -1;
-	while(++i < len)
+	while(++i < argc)
 		printf("%d ", a[i]);
 }
