@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_check_duplicate.c                             :+:      :+:    :+:   */
+/*   main_check_dup.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 19:49:16 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/14 20:02:45 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/15 20:01:08 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-static int	check_duplicate(int before[], int after[], int length)
+static int	check_dup(int before[], int after[], int length)
 {
 	int	i;
 	int	j;
@@ -64,7 +64,7 @@ int	main(int argc, char *argv[])
 		free(b);
 		err();
 	}
-	if (check_duplicate(b, a, argc) == 1)
+	if (check_dup(b, a, argc) == 1)
 	{
 		free(a);
 		free(b);
