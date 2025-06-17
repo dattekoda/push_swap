@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42tokyo.jp>     #+#  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-28 10:28:52 by khanadat          #+#    #+#             */
-/*   Updated: 2025-05-28 10:28:52 by khanadat         ###   ########.jp       */
+/*   Created: 2025/05/28 10:28:52 by khanadat          #+#    #+#             */
+/*   Updated: 2025/06/17 18:22:11 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,16 @@ static int	ft_isnumber(const char *s)
 	return (*s == '\0');
 }
 
-static int	check_duplicate(int *arr, int length)
+static int	check_dup(int before[], int after[], int length)
 {
-	int	before[length];
-	int	after[length];
 	int	i;
 	int	j;
 
 	i = length;
-	ft_memmove(before, arr, sizeof(int) * length);
-	ft_qsort(arr, 0, length - 1);
-	ft_memmove(after, arr, sizeof(int) * length);
+	ft_memmove(after, before, sizeof(int) * length);
+	ft_qsort(after, 0, length - 1);
 	while (--i)
-		if (arr[i] == arr[i - 1])
+		if (after[i] == after[i - 1])
 			return (1);
 	i = -1;
 	while (++i < length)
@@ -41,7 +38,7 @@ static int	check_duplicate(int *arr, int length)
 		j = -1;
 		while (++j < length)
 			if (before[i] == after[j])
-				arr[i] = j;
+				after[i] = j;
 	}
 	return (0);
 }
@@ -49,6 +46,7 @@ static int	check_duplicate(int *arr, int length)
 static void	is_validate(int argc, char *argv[], int *arr)
 {
 	int	_argc;
+	int	*_arr;
 
 	_argc = argc;
 	while (--_argc)
@@ -60,7 +58,7 @@ static void	is_validate(int argc, char *argv[], int *arr)
 		}
 		arr[_argc - 1] = ft_atoi(argv[_argc]);
 	}
-	if (check_duplicate(arr, argc - 1))
+	if (check_dup(arr, argc - 1))
 	{
 		free(arr);
 		err();
@@ -132,12 +130,12 @@ static void	print_two(t_two *two)
 	print_stack(two->b, 0);
 }
 
-int	main(int argc, char *argv[])
-{
-	if (argc == 1)
-		return (1);
-	t_two *two = parse_num_to_two(argc, argv);
-	print_two(two);
-	free_two(&two);
-	return (0);
-}
+// int	main(int argc, char *argv[])
+// {
+// 	if (argc == 1)
+// 		return (1);
+// 	t_two *two = parse_num_to_two(argc, argv);
+// 	print_two(two);
+// 	free_two(&two);
+// 	return (0);
+// }

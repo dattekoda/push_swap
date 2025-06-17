@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42tokyo.jp>     #+#  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-25 12:05:36 by khanadat          #+#    #+#             */
-/*   Updated: 2025-05-25 12:05:36 by khanadat         ###   ########.jp       */
+/*   Created: 2025/05/25 12:05:36 by khanadat          #+#    #+#             */
+/*   Updated: 2025/06/17 17:12:41 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int	main(int argc, char *argv[])
 
 	two = parse_num_to_two(argc, argv);
 	print_two(two);
-	push_swap(&two);
+	// push_swap(&two);
 	return (0);
 }
