@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42tokyo.jp>     #+#  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025-05-24 14:44:48 by khanadat         ###   ########.jp       */
+/*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
+/*   Updated: 2025/06/17 22:47:58 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdbool.h>
 # include <limits.h>
 # include "../libft/includes/libft.h"
-# include "../printf/includes/ft_printf.h"
 
 typedef struct s_stack
 {

@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:05:36 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 17:12:41 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/17 22:20:31 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ static void	print_two(t_two *two)
 	print_stack(two->b);
 }
 
-void	push_swap(t_two **two)
-{
-}
+// void	push_swap(t_two **two)
+// {
+// 	if ()
+// }
 
 int	main(int argc, char *argv[])
 {

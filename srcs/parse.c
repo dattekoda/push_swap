@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:28:52 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 18:22:11 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/17 23:29:47 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,46 @@ static int	ft_isnumber(const char *s)
 	return (*s == '\0');
 }
 
-static int	check_dup(int before[], int after[], int length)
+static int	*ft_intdup(int *nums, int length)
+{
+	int	*dup;
+
+	dup = (int *)malloc(sizeof(int) * length);
+	if (!dup)
+		return (NULL);
+	while (length--)
+		dup[length] = nums[length];
+	return (dup);
+}
+
+static int	get_sorted_idx_checking_dup(int arr[], int length)
 {
 	int	i;
 	int	j;
+	int	*_arr;
 
 	i = length;
-	ft_memmove(after, before, sizeof(int) * length);
-	ft_qsort(after, 0, length - 1);
+	_arr = ft_intdup(arr, length);
+	if (!_arr)
+		return (1);
+	ft_qsort(arr, 0, length - 1);
 	while (--i)
-		if (after[i] == after[i - 1])
-			return (1);
+		if (_arr[i] == arr[i - 1])
+			return (free(_arr), 1);
 	i = -1;
 	while (++i < length)
 	{
 		j = -1;
 		while (++j < length)
-			if (before[i] == after[j])
-				after[i] = j;
+			if (_arr[i] == arr[j])
+				arr[i] = j;
 	}
-	return (0);
+	return (free(_arr), 0);
 }
 
 static void	is_validate(int argc, char *argv[], int *arr)
 {
 	int	_argc;
-	int	*_arr;
 
 	_argc = argc;
 	while (--_argc)
@@ -58,7 +72,7 @@ static void	is_validate(int argc, char *argv[], int *arr)
 		}
 		arr[_argc - 1] = ft_atoi(argv[_argc]);
 	}
-	if (check_dup(arr, argc - 1))
+	if (get_sorted_idx_checking_dup(arr, argc - 1))
 	{
 		free(arr);
 		err();
@@ -105,30 +119,30 @@ t_two	*parse_num_to_two(int argc, char *argv[])
 	return (two);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-static void	print_stack(t_stack *stack, int val_switch)
-{
-	while (stack && val_switch)
-	{
-		printf("%d, ", stack->value);
-		stack = stack->next;
-	}
-	while (stack && !val_switch)
-	{
-		printf("%d, ", stack->index);
-		stack = stack->next;
-	}
-	printf("\n");
-}
+// static void	print_stack(t_stack *stack, int val_switch)
+// {
+// 	while (stack && val_switch)
+// 	{
+// 		printf("%d, ", stack->value);
+// 		stack = stack->next;
+// 	}
+// 	while (stack && !val_switch)
+// 	{
+// 		printf("%d, ", stack->index);
+// 		stack = stack->next;
+// 	}
+// 	printf("\n");
+// }
 
-static void	print_two(t_two *two)
-{
-	printf("A: ");
-	print_stack(two->a, 0);
-	printf("B: ");
-	print_stack(two->b, 0);
-}
+// static void	print_two(t_two *two)
+// {
+// 	printf("A: ");
+// 	print_stack(two->a, 0);
+// 	printf("B: ");
+// 	print_stack(two->b, 0);
+// }
 
 // int	main(int argc, char *argv[])
 // {
