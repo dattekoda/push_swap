@@ -6,12 +6,12 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 01:44:21 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 03:03:55 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 03:10:11 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
+// #include <stdio.h>
 
 // static void	print_val(t_stack *stack)
 // {

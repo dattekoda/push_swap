@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 12:05:36 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 03:17:26 by khanadat         ###   ########.fr       */
+/*   Created: 2025/06/20 03:14:12 by khanadat          #+#    #+#             */
+/*   Updated: 2025/06/20 03:31:17 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_swap(t_two **two, int size)
+static int	check_sorted(t_stack *a)
 {
-	if (size == 2 && (*two)->a->index == 1)
-		sa(two);
-	else if (size == 3)
-		push_swap_three(two, 2);
-	else if (size == 5 || size == 4)
-		push_swap_five(two, size);
+	int	val;
+
+	while (a && a->next)
+	{
+		val = a->value;
+		if (a->next->value < val)
+			return (FAILURE);
+	}
+	return (SUCCESS);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_two	*two;
+
+	two = parse_num_to_two(argc, argv);
+	if (!two)
+		err();
+	push_swap(&two, argc - 1);
+	if (!two->b && !check_sorted(two->a))
+		write(1, "OK\n", 3);
 	else
-		push_swap_more(two, size);
+		write(1, "KO\n", 3);
+	return (0);
 }
