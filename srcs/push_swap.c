@@ -6,14 +6,14 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:05:36 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 22:20:31 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/19 22:12:41 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-static void	print_stack(t_stack *stack)
+static void	print_val(t_stack *stack)
 {
 	while (stack)
 	{
@@ -23,12 +23,26 @@ static void	print_stack(t_stack *stack)
 	printf("\n");
 }
 
+static void	print_idx(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("%d, ", stack->index);
+		stack = stack->next;
+	}
+	printf("\n");
+}
+
 static void	print_two(t_two *two)
 {
 	printf("A: ");
-	print_stack(two->a);
+	print_val(two->a);
+	printf("A: ");
+	print_idx(two->a);
 	printf("B: ");
-	print_stack(two->b);
+	print_val(two->b);
+	printf("B: ");
+	print_idx(two->b);
 }
 
 // void	push_swap(t_two **two)
@@ -36,12 +50,14 @@ static void	print_two(t_two *two)
 // 	if ()
 // }
 
-int	main(int argc, char *argv[])
-{
-	t_two	*two;
+// int	main(int argc, char *argv[])
+// {
+// 	t_two	*two;
 
-	two = parse_num_to_two(argc, argv);
-	print_two(two);
-	// push_swap(&two);
-	return (0);
-}
+// 	two = parse_num_to_two(argc, argv);
+// 	if (!two)
+// 		err();
+// 	print_two(two);
+// 	// push_swap(&two);
+// 	return (0);
+// }

@@ -6,12 +6,14 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 22:47:58 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/19 23:35:12 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define SUCCESS 0
+# define FAILURE 1
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
@@ -20,16 +22,16 @@
 
 typedef struct s_stack
 {
-	int	value;
-	int	index;
-	struct s_stack *next;
-}	t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}					t_stack;
 
 typedef struct s_two
 {
-	t_stack *a;
-	t_stack *b;
-}	t_two;
+	t_stack		*a;
+	t_stack		*b;
+}				t_two;
 
 void	free_stack(t_stack **head);
 void	push_stack(t_stack **head, t_stack *node);
@@ -54,6 +56,7 @@ void	rrr(t_two **two);
 
 void	ft_qsort(int arr[], int low, int high);
 void	push_swap(t_two **two);
+int		is_validate(int argc, char *argv[], int *array);
 t_two	*parse_num_to_two(int argc, char *argv[]);
 
 void	err(void);

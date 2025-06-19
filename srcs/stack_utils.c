@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:05:03 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 23:05:04 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/19 23:35:05 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*pop_stack(t_stack **head)
 void	swap_stack(t_stack **head)
 {
 	t_stack	*first;
-	t_stack *second;
+	t_stack	*second;
 
 	if (!*head || !(*head)->next)
 		return ;

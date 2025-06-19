@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:04:51 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 23:04:52 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/19 22:16:34 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ static int	partition(int arr[], int low, int high)
 
 void	ft_qsort(int arr[], int low, int high)
 {
-	int	idx = partition(arr, low, high);
+	int	idx;
 
+	idx = partition(arr, low, high);
 	if (low < idx - 1)
 		ft_qsort(arr, low, idx - 1);
 	if (idx < high)
