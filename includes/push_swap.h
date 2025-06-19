@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/19 23:35:12 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 00:43:41 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ void	rrb(t_two **two);
 void	rrr(t_two **two);
 
 void	ft_qsort(int arr[], int low, int high);
-void	push_swap(t_two **two);
+void	push_swap_three(t_two **two, int largest);
+void	push_swap_five(t_two **two, int size);
+void	push_swap(t_two **two, int size);
 int		is_validate(int argc, char *argv[], int *array);
 t_two	*parse_num_to_two(int argc, char *argv[]);
 

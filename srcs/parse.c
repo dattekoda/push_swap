@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:28:52 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/19 23:42:07 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 00:28:42 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,24 @@ static int	*int_dup(int *array, int len)
 static int	first_push(int argc, t_two **two, int *array)
 {
 	t_stack	*node;
-	int		j;
 	int		idx;
+	int		_argc;
 	int		*sorted;
 
 	sorted = int_dup(array, argc - 1);
 	if (!sorted)
 		return (FAILURE);
-	ft_qsort(sorted, 0, argc - 2);
-	j = -1;
-	while (++j < argc - 1)
+	_argc = argc;
+	ft_qsort(sorted, 0, _argc - 2);
+	while (argc-- - 1)
 	{
 		node = malloc(sizeof(t_stack));
 		if (!node)
 			return (FAILURE);
-		node->value = array[j];
+		node->value = array[argc - 1];
 		idx = -1;
-		while (++idx < argc - 1)
-			if (sorted[idx] == array[j])
+		while (++idx < _argc - 1)
+			if (sorted[idx] == array[argc - 1])
 				node->index = idx;
 		push_stack(&((*two)->a), node);
 	}
@@ -71,45 +71,45 @@ t_two	*parse_num_to_two(int argc, char *argv[])
 	return (two);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-static void	print_stack(t_stack *stack, int val_switch)
-{
-	while (stack && val_switch)
-	{
-		printf("%d, ", stack->value);
-		stack = stack->next;
-	}
-	while (stack && !val_switch)
-	{
-		printf("%d, ", stack->index);
-		stack = stack->next;
-	}
-	printf("\n");
-}
+// static void	print_stack(t_stack *stack, int val_switch)
+// {
+// 	while (stack && val_switch)
+// 	{
+// 		printf("%d, ", stack->value);
+// 		stack = stack->next;
+// 	}
+// 	while (stack && !val_switch)
+// 	{
+// 		printf("%d, ", stack->index);
+// 		stack = stack->next;
+// 	}
+// 	printf("\n");
+// }
 
-static void	print_two(t_two *two)
-{
-	printf("A: ");
-	print_stack(two->a, 0);
-	printf("A: ");
-	print_stack(two->a, 1);
-	printf("B: ");
-	print_stack(two->b, 0);
-	printf("B: ");
-	print_stack(two->b, 1);
-}
+// static void	print_two(t_two *two)
+// {
+// 	printf("A: ");
+// 	print_stack(two->a, 0);
+// 	printf("A: ");
+// 	print_stack(two->a, 1);
+// 	printf("B: ");
+// 	print_stack(two->b, 0);
+// 	printf("B: ");
+// 	print_stack(two->b, 1);
+// }
 
-int	main(int argc, char *argv[])
-{
-	t_two *two;
+// int	main(int argc, char *argv[])
+// {
+// 	t_two *two;
 
-	if (argc == 1)
-		return (FAILURE);
-	two = parse_num_to_two(argc, argv);
-	if (!two)
-		return (FAILURE);
-	print_two(two);
-	free_two(&two);
-	return (SUCCESS);
-}
+// 	if (argc == 1)
+// 		return (FAILURE);
+// 	two = parse_num_to_two(argc, argv);
+// 	if (!two)
+// 		return (FAILURE);
+// 	print_two(two);
+// 	free_two(&two);
+// 	return (SUCCESS);
+// }
