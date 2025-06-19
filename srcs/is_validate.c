@@ -6,24 +6,32 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 19:11:28 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 03:04:30 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 03:48:21 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	ft_isnumber(const char *s)
+static int	ft_isint(const char *s)
 {
+	long	n;
+	int		minus;
+
+	n = 1;
+	minus = 1;
 	if (!*s || !s)
 		return (FAILURE);
 	while (*s && (*s == ' ' || ('\t' <= *s && *s <= '\r')))
 		s++;
 	if (*s && (*s == '-' || *s == '+'))
-		s++;
+		minus = 1 - 2 * (*s++ == '-');
 	if (!*s)
 		return (FAILURE);
 	while (*s && ('0' <= *s && *s <= '9'))
-		s++;
+		n = n * 10 + (*s++ - '0');
+	n *= minus;
+	if (n < INT_MIN || INT_MAX < n)
+		return (FAILURE);
 	return (*s);
 }
 
@@ -50,7 +58,7 @@ int	is_validate(int argc, char *argv[], int	*array)
 
 	_argc = argc;
 	while ((_argc-- - 1))
-		if (ft_isnumber(argv[_argc]))
+		if (ft_isint(argv[_argc]))
 			return (FAILURE);
 	if (is_unique(argc, argv, array))
 		return (FAILURE);
@@ -68,7 +76,7 @@ int	is_validate(int argc, char *argv[], int	*array)
 // 		return (1);
 // 	array = malloc(sizeof(int) * (argc - 1));
 // 	// printf("%d\n", is_unique(argc, argv));
-// 	// printf("%d\n", ft_isnumber("821"));
+// 	// printf("%d\n", ft_isint("821"));
 // 	printf("%d\n", is_validate(argc, argv, array));
 // 	while (++i < argc - 1)
 // 		printf("%d ", array[i]);

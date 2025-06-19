@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 03:14:12 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 03:31:17 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 03:43:45 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	check_sorted(t_stack *a)
 		val = a->value;
 		if (a->next->value < val)
 			return (FAILURE);
+		a = a->next;
 	}
 	return (SUCCESS);
 }
@@ -37,5 +38,5 @@ int	main(int argc, char *argv[])
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	return (0);
+	return (free_two(&two), 0);
 }
