@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 00:43:41 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 02:42:28 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # define SUCCESS 0
 # define FAILURE 1
+# define RANGE 13
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
@@ -57,6 +58,7 @@ void	rrr(t_two **two);
 void	ft_qsort(int arr[], int low, int high);
 void	push_swap_three(t_two **two, int largest);
 void	push_swap_five(t_two **two, int size);
+void	push_swap_more(t_two **two, int size);
 void	push_swap(t_two **two, int size);
 int		is_validate(int argc, char *argv[], int *array);
 t_two	*parse_num_to_two(int argc, char *argv[]);

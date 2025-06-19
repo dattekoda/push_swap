@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:04:51 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/19 22:16:34 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 02:21:25 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static	void	swap(int *a, int *b)
 {
 	int	tmp;
-	
+
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
@@ -23,10 +23,13 @@ static	void	swap(int *a, int *b)
 
 static int	partition(int arr[], int low, int high)
 {
-	int	pivot = arr[(low + high) / 2];
-	int	i = low;
-	int j = high;
+	int	pivot;
+	int	i;
+	int	j;
 
+	pivot = arr[(low + high) / 2];
+	i = low;
+	j = high;
 	while (i <= j)
 	{
 		while (arr[i] < pivot)

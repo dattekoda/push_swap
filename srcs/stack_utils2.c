@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:05:06 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 23:05:07 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 02:19:47 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	rotate_stack(t_stack **head)
 {
 	t_stack	*first;
-	t_stack *tail;
+	t_stack	*tail;
 
 	if (!*head || !(*head)->next)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 19:11:28 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/19 23:37:22 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 03:04:30 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_isnumber(const char *s)
 }
 
 static int	is_unique(int argc, char *argv[], int *array)
-{	//check if it is unique and store the element in the array.
+{
 	int	i;
 	int	j;
 

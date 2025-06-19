@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:05:36 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 00:43:55 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 02:42:43 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,14 @@ static void	print_two(t_two *two)
 
 void	push_swap(t_two **two, int size)
 {
-	if (size == 3)
+	if (size == 2 && (*two)->a->index == 1)
+		sa(two);
+	else if (size == 3)
 		push_swap_three(two, 2);
 	else if (size == 5 || size == 4)
 		push_swap_five(two, size);
+	else
+		push_swap_more(two, size);
 }
 
 int	main(int argc, char *argv[])

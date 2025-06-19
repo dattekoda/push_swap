@@ -6,12 +6,11 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:28:52 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 00:28:42 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 03:04:57 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 static int	*int_dup(int *array, int len)
 {
@@ -51,7 +50,6 @@ static int	first_push(int argc, t_two **two, int *array)
 	}
 	return (SUCCESS);
 }
-
 
 t_two	*parse_num_to_two(int argc, char *argv[])
 {
