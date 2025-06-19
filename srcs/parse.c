@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:28:52 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 23:29:47 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:15:22 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	get_sorted_idx_checking_dup(int arr[], int length)
 	return (free(_arr), 0);
 }
 
-static void	is_validate(int argc, char *argv[], int *arr)
+static int	is_validate(int argc, char *argv[], int *arr)
 {
 	int	_argc;
 
@@ -66,17 +66,11 @@ static void	is_validate(int argc, char *argv[], int *arr)
 	while (--_argc)
 	{
 		if (!ft_isnumber(argv[_argc]))
-		{
-			free(arr);
-			err();
-		}
+			return (1);
 		arr[_argc - 1] = ft_atoi(argv[_argc]);
 	}
 	if (get_sorted_idx_checking_dup(arr, argc - 1))
-	{
-		free(arr);
-		err();
-	}
+		returtn (1);
 }
 
 static int	first_push(int argc, char *argv[], t_two **two, int *idx)
@@ -103,7 +97,11 @@ t_two	*parse_num_to_two(int argc, char *argv[])
 	idx = (int *)malloc(sizeof(int) * (argc - 1));
 	if (!idx)
 		err();
-	is_validate(argc, argv, idx);
+	if (is_validate(argc, argv, idx))
+	{
+		free(idx);
+		err();
+	}
 	two = init_two();
 	if (!two)
 	{
