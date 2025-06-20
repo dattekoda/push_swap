@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 01:44:21 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 03:10:11 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/20 21:14:14 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	a_to_b(t_two **two, int size)
 	}
 }
 
-static int	search_max_push(t_two **two, int size)
+static void	search_max_push(t_two **two, int size)
 {
 	int		idx;
 	int		left;
