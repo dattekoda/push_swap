@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 23:47:25 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 01:36:09 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/21 23:41:36 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,33 +70,8 @@ void	push_swap_three(t_two **two, int largest)
 	}
 }
 
-static int	roop_check(t_two **two, int size)
-{
-	int		i;
-	t_stack	*node;
-
-	node = (*two)->a;
-	i = node->index;
-	while (node && node->index == i)
-	{
-		node = node->next;
-		i = (i + 1) % size;
-	}
-	if (node)
-		return (FAILURE);
-	if ((*two)->a->index == size - 1 || (*two)->a->index == size - 2)
-		while ((*two)->a->index != 0)
-			ra(two);
-	else
-		while ((*two)->a->index != 0)
-			rra(two);
-	return (SUCCESS);
-}
-
 void	push_swap_five(t_two **two, int size)
 {
-	if (!roop_check(two, size))
-		return ;
 	while ((*two)->a->index != 0 && (*two)->a->index != 1)
 		ra(two);
 	pb(two);

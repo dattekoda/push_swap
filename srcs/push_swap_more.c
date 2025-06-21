@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 01:44:21 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 21:14:14 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/22 03:41:47 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 // 	print_idx(two->b);
 // }
 
-static void	a_to_b(t_two **two, int size)
+static void	a_to_b(t_two **two, int size, int range)
 {
 	int	i;
 	int	idx;
@@ -56,35 +56,32 @@ static void	a_to_b(t_two **two, int size)
 		idx = (*two)->a->index;
 		if (idx <= ++i)
 			pb(two);
-		else if (idx <= i + RANGE)
+		else if (idx <= i + range)
 		{
 			pb(two);
 			rb(two);
 		}
 		else
 			ra(two);
-	}
+		}
 }
 
 static void	search_max_push(t_two **two, int size)
 {
-	int		idx;
-	int		left;
 	t_stack	*node;
+	int		idx;
+	int		b_len;
 
-	left = 2;
-	node = (*two)->b->next->next;
-	while (node)
-	{
-		if (node->index == size - 1)
-			idx = left;
-		node = (left++, node->next);
-	}
-	if (idx <= left - idx)
+	idx = 0;
+	node = (*two)->b;
+	b_len = get_stack_len((*two)->b);
+	while (node && node->index != size - 1)
+		node = (idx++, node->next);
+	if (idx <= b_len / 2)
 		while (idx--)
 			rb(two);
 	else
-		while (left - idx++)
+		while (size-- - idx)
 			rrb(two);
 	pa(two);
 }
@@ -95,7 +92,8 @@ static void	b_to_a(t_two **two, int size)
 	{
 		if ((*two)->b->index == size - 1)
 			pa(two);
-		else if ((*two)->b->next->index == size - 1)
+		else if ((*two)->b->next &&
+			(*two)->b->next->index == size - 1)
 		{
 			sb(two);
 			pa(two);
@@ -106,8 +104,8 @@ static void	b_to_a(t_two **two, int size)
 	}
 }
 
-void	push_swap_more(t_two **two, int size)
+void	push_swap_more(t_two **two, int size, int range)
 {
-	a_to_b(two, size);
+	a_to_b(two, size, range);
 	b_to_a(two, size);
 }

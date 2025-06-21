@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:05:03 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/19 23:35:05 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/22 04:05:28 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,12 @@ void	swap_stack(t_stack **head)
 	*head = second;
 }
 
-void	pa(t_two **two)
+int	get_stack_len(t_stack *node)
 {
-	write(1, "pa\n", 3);
-	if ((*two)->b)
-		push_stack(&((*two)->a), pop_stack(&((*two)->b)));
+	int	len;
+
+	len = 0;
+	while (node)
+		node = (len++, node->next);
+	return (len);
 }

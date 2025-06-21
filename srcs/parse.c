@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 10:28:52 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 03:04:57 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/21 22:43:54 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	first_push(int argc, t_two **two, int *array)
 	{
 		node = malloc(sizeof(t_stack));
 		if (!node)
-			return (FAILURE);
+			return (free(sorted), FAILURE);
 		node->value = array[argc - 1];
 		idx = -1;
 		while (++idx < _argc - 1)
@@ -48,7 +48,7 @@ static int	first_push(int argc, t_two **two, int *array)
 				node->index = idx;
 		push_stack(&((*two)->a), node);
 	}
-	return (SUCCESS);
+	return (free(sorted), SUCCESS);
 }
 
 t_two	*parse_num_to_two(int argc, char *argv[])
@@ -66,7 +66,7 @@ t_two	*parse_num_to_two(int argc, char *argv[])
 		return (free(array), NULL);
 	if (first_push(argc, &two, array))
 		return (free(array), free_two(&two), NULL);
-	return (two);
+	return (free(array), two);
 }
 
 // #include <stdio.h>

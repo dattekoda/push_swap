@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 19:11:28 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 03:48:21 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/21 23:09:36 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	ft_isint(const char *s)
 {
-	long	n;
+	long	num;
 	int		minus;
 
-	n = 1;
+	num = 0;
 	minus = 1;
 	if (!*s || !s)
 		return (FAILURE);
@@ -28,9 +28,9 @@ static int	ft_isint(const char *s)
 	if (!*s)
 		return (FAILURE);
 	while (*s && ('0' <= *s && *s <= '9'))
-		n = n * 10 + (*s++ - '0');
-	n *= minus;
-	if (n < INT_MIN || INT_MAX < n)
+		num = num * 10 + (*s++ - '0');
+	num *= minus;
+	if (num < INT_MIN || INT_MAX < num)
 		return (FAILURE);
 	return (*s);
 }

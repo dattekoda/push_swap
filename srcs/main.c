@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 03:15:56 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 04:12:14 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/21 21:30:04 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char *argv[])
 {
 	t_two	*two;
 
+	if (argc == 1)
+		err();
 	two = parse_num_to_two(argc, argv);
 	if (!two)
 		err();

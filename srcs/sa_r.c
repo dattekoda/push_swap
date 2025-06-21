@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:04:57 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/17 23:04:58 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/21 23:47:14 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	sb(t_two **two)
 void	ss(t_two **two)
 {
 	write(1, "ss\n", 3);
-	sa(two);
-	sb(two);
+	swap_stack(&((*two)->a));
+	swap_stack(&((*two)->b));
 }
 
 void	ra(t_two **two)

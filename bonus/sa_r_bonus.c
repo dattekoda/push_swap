@@ -6,11 +6,11 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 01:32:12 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/21 01:33:57 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/22 04:08:58 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/push_swap_bonus.h"
 
 void	sa(t_two **two)
 {

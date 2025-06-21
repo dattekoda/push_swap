@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:05:06 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/20 02:19:47 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/21 22:11:05 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,4 @@ void	free_two(t_two **two)
 	free_stack(&((*two)->a));
 	free_stack(&((*two)->b));
 	free(*two);
-}
-
-void	pb(t_two **two)
-{
-	write(1, "pb\n", 3);
-	if ((*two)->a)
-		push_stack(&((*two)->b), pop_stack(&((*two)->a)));
 }

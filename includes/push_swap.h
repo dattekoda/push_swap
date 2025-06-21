@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/21 03:41:17 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/22 05:16:28 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define PUSH_SWAP_H
 # define SUCCESS 0
 # define FAILURE 1
-# define RANGE 13
+# define RANGE_FEWER 13
+# define RANGE_MORE 37
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
 # include <limits.h>
 # include "../libft/includes/libft.h"
-# include "../get_next_line/get_next_line.h"
 
 typedef struct s_stack
 {
@@ -41,6 +41,7 @@ t_stack	*pop_stack(t_stack **head);
 void	swap_stack(t_stack **head);
 void	rotate_stack(t_stack **head);
 void	rev_rotate_stack(t_stack **head);
+int		get_stack_len(t_stack *node);
 
 t_two	*init_two(void);
 void	free_two(t_two **two);
@@ -59,7 +60,7 @@ void	rrr(t_two **two);
 void	ft_qsort(int arr[], int low, int high);
 void	push_swap_three(t_two **two, int largest);
 void	push_swap_five(t_two **two, int size);
-void	push_swap_more(t_two **two, int size);
+void	push_swap_more(t_two **two, int size, int range);
 void	push_swap(t_two **two, int size);
 int		is_validate(int argc, char *argv[], int *array);
 t_two	*parse_num_to_two(int argc, char *argv[]);
