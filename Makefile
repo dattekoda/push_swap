@@ -1,4 +1,5 @@
 NAME := push_swap
+NAME_BONUS := checker
 CC := cc
 CCFLAGS := -Wall -Wextra -Werror
 INC := includes/push_swap.h
@@ -33,11 +34,17 @@ $(NAME): $(LIBFT_A) $(OBJS)
 $(LIBFT_A):
 	@$(MAKE) -C $(LIBFT_DIR)
 
+bonus: $(LIBFT_A) $(OBJS_BONUS)
+	$(AR) $(NAME_BONUS) $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
