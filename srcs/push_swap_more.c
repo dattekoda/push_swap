@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_more.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 01:44:21 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/22 03:41:47 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:09:50 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,26 @@
 // 	print_idx(two->b);
 // }
 
+static int	check_opposite(t_stack *a)
+{
+	int	a_size;
+	int	count;
+	int	diff;
+
+	a_size = get_stack_len(a);
+	count = 0;
+	while (a && a->next)
+	{
+		diff = a->index - a->next->index;
+		if (2 <= diff && diff <= 4)
+			count++;
+		a = a->next;
+	}
+	if (count * 10 >= a_size * 6)
+		return (1);
+	return (0);
+}
+
 static void	a_to_b(t_two **two, int size, int range)
 {
 	int	i;
@@ -54,16 +74,19 @@ static void	a_to_b(t_two **two, int size, int range)
 	while ((*two)->a)
 	{
 		idx = (*two)->a->index;
-		if (idx <= ++i)
-			pb(two);
+		if (idx <= i)
+			pb((++i, two));
 		else if (idx <= i + range)
 		{
 			pb(two);
 			rb(two);
+			++i;
 		}
+		// else if (check_opposite((*two)->a))
+		// 	rra(two);
 		else
 			ra(two);
-		}
+	}
 }
 
 static void	search_max_push(t_two **two, int size)
@@ -92,8 +115,8 @@ static void	b_to_a(t_two **two, int size)
 	{
 		if ((*two)->b->index == size - 1)
 			pa(two);
-		else if ((*two)->b->next &&
-			(*two)->b->next->index == size - 1)
+		else if ((*two)->b->next
+			&& (*two)->b->next->index == size - 1)
 		{
 			sb(two);
 			pa(two);

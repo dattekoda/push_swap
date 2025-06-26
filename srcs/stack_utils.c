@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:05:03 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/22 04:05:28 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 10:03:44 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,30 @@ int	get_stack_len(t_stack *node)
 {
 	int	len;
 
+	if (!node)
+		return (0);
 	len = 0;
 	while (node)
 		node = (len++, node->next);
 	return (len);
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	t_stack	*head;
+// 	t_stack *node;
+// 	int	i;
+
+// 	head = NULL;
+// 	for (i = 0; i < 10; i++)
+// 	{
+// 		node = malloc(sizeof(t_stack));
+// 		node->value = i * i;
+// 		node->index = i;
+// 		push_stack(&head, node);
+// 	}
+// 	printf("%d\n", get_stack_len(head));
+// 	free_stack(&head);
+// 	return (0);
+// }
