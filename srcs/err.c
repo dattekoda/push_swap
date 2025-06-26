@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   err.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 23:04:44 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/21 21:57:50 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:06:34 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	err(void)
 {
-	write(1, "ERROR\n", 6);
+	write(1, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

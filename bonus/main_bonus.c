@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 03:14:12 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/22 04:08:58 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:08:11 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	main(int argc, char *argv[])
 	t_two	*two;
 
 	if (argc == 1)
-		err();
+		return (FAILURE);
 	two = parse_num_to_two(argc, argv);
 	if (!two)
 		err();

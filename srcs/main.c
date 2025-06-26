@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 03:15:56 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/21 21:30:04 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 16:07:29 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char *argv[])
 	t_two	*two;
 
 	if (argc == 1)
-		err();
+		return (FAILURE);
 	two = parse_num_to_two(argc, argv);
 	if (!two)
 		err();
