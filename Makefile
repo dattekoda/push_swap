@@ -1,8 +1,7 @@
 NAME := push_swap
-NAME_BONUS := checker
+BONUS_NAME := checker
 CC := cc
 CCFLAGS := -Wall -Wextra -Werror
-INC := includes/push_swap.h
 
 SRCS := srcs/err.c srcs/is_validate.c srcs/main.c \
 		srcs/parse.c srcs/push_swap_more.c \
@@ -20,7 +19,7 @@ BONUS := bonus/main_bonus.c bonus/pa_pb_bonus.c \
 		libft/get_next_line.c
 
 OBJS := $(SRCS:.c=.o)
-OBJS_BONUS := $(BONUS:.c=.o)
+BONUS_OBJS := $(BONUS:.c=.o)
 
 LIBFT_DIR := libft
 LIBFT_A := $(LIBFT_DIR)/libft.a
@@ -28,23 +27,25 @@ LIBFT_A := $(LIBFT_DIR)/libft.a
 all: $(NAME)
 
 $(NAME): $(LIBFT_A) $(OBJS)
-	$(CC) $(CCFLAGS) $(OBJS) $(LIBFT_A) -o $@
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	$(CC) $(CCFLAGS) $(OBJS) $(LIBFT_A) -I includes/push_swap.h -o $@
 
 $(LIBFT_A):
 	@$(MAKE) -C $(LIBFT_DIR)
 
-bonus: $(LIBFT_A) $(OBJS_BONUS)
-	$(AR) $(NAME_BONUS) $^
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS) $(LIBFT_A)
+	$(CC) $(CCFLAGS) $(BONUS_OBJS) $(LIBFT_A) -I includes/push_swap_bonus.h -o $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(OBJS) $(BONUS_OBJS)
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 fclean: clean
-	rm -f $(NAME) $(NAME_BONUS)
+	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
