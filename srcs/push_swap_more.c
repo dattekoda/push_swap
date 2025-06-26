@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 01:44:21 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/26 10:09:50 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 12:10:10 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,6 @@
 // 	print_idx(two->b);
 // }
 
-static int	check_opposite(t_stack *a)
-{
-	int	a_size;
-	int	count;
-	int	diff;
-
-	a_size = get_stack_len(a);
-	count = 0;
-	while (a && a->next)
-	{
-		diff = a->index - a->next->index;
-		if (2 <= diff && diff <= 4)
-			count++;
-		a = a->next;
-	}
-	if (count * 10 >= a_size * 6)
-		return (1);
-	return (0);
-}
-
 static void	a_to_b(t_two **two, int size, int range)
 {
 	int	i;
@@ -82,8 +62,6 @@ static void	a_to_b(t_two **two, int size, int range)
 			rb(two);
 			++i;
 		}
-		// else if (check_opposite((*two)->a))
-		// 	rra(two);
 		else
 			ra(two);
 	}

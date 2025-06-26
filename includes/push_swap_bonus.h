@@ -6,12 +6,12 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/26 10:15:01 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 12:07:33 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 # define SUCCESS 0
 # define FAILURE 1
 # include <stdlib.h>

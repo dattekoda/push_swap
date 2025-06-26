@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khanadat <khanadat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/22 05:16:28 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/06/26 12:48:35 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define SUCCESS 0
 # define FAILURE 1
 # define RANGE_FEWER 13
-# define RANGE_MORE 37
+# define RANGE_MORE 31
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
