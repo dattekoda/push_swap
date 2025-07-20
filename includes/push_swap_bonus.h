@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 14:44:48 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/26 12:07:33 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/07/20 15:03:48 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdbool.h>
 # include <limits.h>
 # include "../libft/includes/libft.h"
-# include "../libft/includes/get_next_line.h"
 
 typedef struct s_stack
 {

@@ -15,8 +15,7 @@ BONUS := bonus/main_bonus.c bonus/pa_pb_bonus.c \
 		bonus/sa_r_bonus.c bonus/is_validate_bonus.c \
 		bonus/parse_bonus.c bonus/qsort_bonus.c \
 		bonus/stack_utils_bonus.c \
-		bonus/stack_utils2_bonus.c \
-		libft/get_next_line.c
+		bonus/stack_utils2_bonus.c
 
 OBJS := $(SRCS:.c=.o)
 BONUS_OBJS := $(BONUS:.c=.o)
@@ -49,4 +48,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+rebonus: fclean bonus
+
+.PHONY: all clean fclean re bonus rebonus

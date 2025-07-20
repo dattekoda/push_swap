@@ -6,7 +6,7 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 03:14:12 by khanadat          #+#    #+#             */
-/*   Updated: 2025/06/26 16:08:11 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/07/20 15:10:26 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,15 @@ static int	do_command(char *line, t_two **two)
 
 static int	get_command(t_two **two)
 {
-	char	*line;
 	char	c;
+	int		gnl;
+	char	*line;
 
 	while (1)
 	{
-		line = get_next_line(0);
-		if (!line)
-			break ;
+		gnl = ft_get_next_line(STDIN_FILENO, &line);
+		if (gnl <= 0)
+			return (FAILURE);
 		if (do_command(line, two))
 			return (free(line), FAILURE);
 		c = *line;
