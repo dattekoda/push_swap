@@ -6,12 +6,12 @@
 /*   By: khanadat <khanadat@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 03:14:12 by khanadat          #+#    #+#             */
-/*   Updated: 2025/07/20 15:10:26 by khanadat         ###   ########.fr       */
+/*   Updated: 2025/07/20 17:31:33 by khanadat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap_bonus.h"
-// #include <stdio.h>
+#include <stdio.h>
 
 // static void	print_val(t_stack *stack);
 // static void	print_idx(t_stack *stack);
@@ -73,17 +73,23 @@ static int	get_command(t_two **two)
 	int		gnl;
 	char	*line;
 
-	while (1)
+	gnl = 1;
+	while (gnl > 0)
 	{
 		gnl = ft_get_next_line(STDIN_FILENO, &line);
-		if (gnl <= 0)
+		if (gnl < 0)
 			return (FAILURE);
+		if (gnl == 0)
+			break ;
 		if (do_command(line, two))
 			return (free(line), FAILURE);
 		c = *line;
 		free(line);
 		if (c == '\n')
+		{
+			ft_get_next_line(GNL_FREE_FD, NULL);
 			break ;
+		}
 	}
 	return (SUCCESS);
 }
